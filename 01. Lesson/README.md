@@ -36,10 +36,37 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 ```
 
-##### Шаблон
 
-```Go
-func twoSum(nums []int, target int) []int {
-    
+Decision
+/*                     Given nums = [2, 7, 11, 15], target = 9,
+                         Because nums[0] + nums[1] = 2 + 7 = 9,
+                          return [0, 1].
+                 В полученном массиве целых чисел, вернуть индексы таких двух чисел, сумма которых равна заданному значению target.
+                 Шаблон
+		  func twoSum(nums []int, target int) []int {
+}              							*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func twoSum(nums []int, target int) (right []int) {
+	for i := 0; i < (len(nums)); i++ {
+		for j := i + 1; j < (len(nums)); j++ {
+			if nums[i]+nums[j] == target {
+				right = append(right, i, j)
+				return
+			}
+		}
+	}
+	return
 }
-```
+
+func main() {
+	nums := []int{2, 7, 11, 15} //slice базовый
+	target := 9                 // значение, которое должно получиться
+
+	fmt.Println(twoSum(nums, target))
+}
